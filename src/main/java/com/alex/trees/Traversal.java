@@ -1,5 +1,7 @@
 package com.alex.trees;
 
+import com.alex.datastructures.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,21 +23,17 @@ import java.util.List;
 
 public class Traversal {
 
-    class Solution {
+    List<Integer> visitedInOrder = new ArrayList<Integer>();
 
-        List<Integer> visitedInOrder = new ArrayList<Integer>();
+    public List<Integer> inorderTraversal(TreeNode root) {
 
-        public List<Integer> inorderTraversal(TreeNode root) {
-
-            if (root != null) {
-                inorderTraversal(root.left);
-                visitedInOrder.add(root.val);
-                inorderTraversal(root.right);
-            }
-
-            return visitedInOrder;
-
+        if (root != null) {
+            inorderTraversal(root.left);
+            visitedInOrder.add(root.val);
+            inorderTraversal(root.right);
         }
+
+        return visitedInOrder;
 
     }
 
